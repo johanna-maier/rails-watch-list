@@ -1,8 +1,13 @@
-<h1>Your movie + list selection and comment</h1>
-
-<%= simple_form_for [ @list, @bookmark ] do |f| %>
-  <%= f.association :movie %>
-  <%= f.association :list %>
-  <%= f.input :comment %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-9 text-center m-3 pb-3">
+      <h1 id="jump-mark">Bookmark your movie in "<%= @list.name %>"</h1>
+      <p>(<%= link_to 'Back to the list', list_path(@list) %>)</p>
+      <%= simple_form_for [ @list, @bookmark ] do |f| %>
+        <%= f.association :movie %>
+        <%= f.input :comment %>
+        <%= f.button :submit, class: 'btn btn-gradient' %>
+      <% end %>
+    </div>
+  </div>
+</div>

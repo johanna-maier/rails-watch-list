@@ -1,8 +1,5 @@
 class BookmarksController < ApplicationController
 
-  def index
-  end
-
   def new
     @list = List.find(params[:list_id])
     @bookmark = Bookmark.new
@@ -19,8 +16,15 @@ class BookmarksController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    redirect_to @bookmark.list
+    # If you pass an instance, rails will automatically render the show page.
+    # We don't want the show of the bookmark to be rendered but the show of the list.
   end
+
+  private
 
   def bookmark_params
     params.require(:bookmark).permit(:comment, :movie_id, :list_id)

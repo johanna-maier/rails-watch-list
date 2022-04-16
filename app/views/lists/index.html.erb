@@ -1,9 +1,18 @@
-<h1>Show all lists</h1>
 
-<% @lists.each do |list| %>
-  <ul>
-    <li><%= list.name %></li>
-  </ul>
-<% end %>
 
-<%= link_to 'Add a new list', new_list_path, class: "btn btn-primary" %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-9 text-center m-3">
+      <h1 id="jump-mark">Here are your current lists <%= link_to '+',  new_list_path %></h1>
+    </div>
+    <div class="cards">
+      <% @lists.each do |list| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://unsplash.it/640/425)">
+          <%= "#{list.name}" %> <%=  link_to '+', list_path(list), class: 'ps-3' %>
+        </div>
+      <% end %>
+
+    </div>
+
+  </div>
+</div>

@@ -1,3 +1,10 @@
-<h1>Add a new list here</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 text-center m-3 pb-3">
+      <h1 id="jump-mark">Add a new list here </h1>
+      <p>(<%= link_to 'Back to all lists', lists_path %>)</p>
+      <%= render 'form', list: @list %>
+    </div>
 
-<%= render 'form', list: @list %>
+  </div>
+</div>

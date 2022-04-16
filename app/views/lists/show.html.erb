@@ -1,7 +1,38 @@
-<h1>This is list <%= @list.name %></h1>
 
-<% @list.bookmarks.each do |bookmark| %>
-  <%= bookmark.movie.title %> | <%= bookmark.comment %> <br>
-<% end %>
 
-<%= link_to 'Back to all lists', lists_path, class: "btn btn-primary" %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-9 m-3 pb-3">
+      <h1 class="text-center" id="jump-mark">This is the list: "<%= @list.name %>"</h1>
+      <p class="text-center">
+        (<%= link_to 'Back to all lists', lists_path %>) |
+        (<%= link_to 'Add new bookmark', new_list_bookmark_path(@list) %>)
+      </p>
+      <div class="cards">
+        <% @list.bookmarks.each do |bookmark| %>
+            <div class="card-trip">
+              <img src="<%= bookmark.movie.poster_url %>" />
+              <div class="card-trip-infos">
+                <div>
+                  <h2>
+                  <%= bookmark.movie.title %>
+                  </h2>
+                  <p><%= truncate(bookmark.movie.overview, :length => 200, :omission => ' ...') %></p>
+                  <hr>
+                  <p><strong>Comment: </strong><%= bookmark.comment%></p>
+                  <p><%= link_to 'Delete', bookmark_path(bookmark), method: :delete, data: {confirm: "Are you sure?"} %></p>
+                </div>
+                <h2 class="card-trip-pricing"><%= bookmark.movie.rating %>/10</h2>
+
+              </div>
+            </div>
+        <% end %>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%# => #<Movie id: 40, title: "Parasite", overview: "All unemployed, Ki-taek's family takes peculiar in...",
+ poster_url: "https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1...", created_at: "2022-04-16 18:58:21.708423000 +0000", updated_at: "2022-04-16 18:58:21.708423000 +0000", rating: 8.5> %>
