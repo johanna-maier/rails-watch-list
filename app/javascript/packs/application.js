@@ -8,9 +8,13 @@ import Turbolinks from "turbolinks";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 
+// Bootstrap
+import "bootstrap";
+
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-// Bootstrap
-import "bootstrap";
+// console.log("Hello");
+
+import "controllers";
