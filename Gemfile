@@ -56,3 +56,6 @@ gem "simple_form", github: "heartcombo/simple_form"
 
 # Open URI to connect to movies API
 gem 'open-uri'
+
+# env for keys
+gem 'dotenv-rails', groups: [:development, :test]
