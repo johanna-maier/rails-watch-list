@@ -35,7 +35,7 @@ end
 puts 'Seeded movies'
 
 puts 'Creating a basic selection of lists'
-selection = ['Classic Movies', 'Romantic Movies', 'Action Movies', 'Western Movies', 'Children Movies', 'Animal Movies', 'Top 10']
+selection = ['Classic Movies', 'Romantic Movies', 'Action Movies']
 
 selection.each do |list_title|
   List.create(name: list_title)

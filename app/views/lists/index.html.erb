@@ -10,20 +10,23 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-9 text-center m-3">
-      <h1 id="jump-mark">Here are your current lists <%= link_to '+',  new_list_path %></h1>
+      <h1 id="jump-mark">Your current lists <%= link_to  new_list_path do %>
+        <i class="fa-solid fa-circle-plus fa-xs"></i>
+       <% end %>
+      </h1>
     </div>
     <div class="cards">
       <% @lists.each do |list| %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://unsplash.it/640/425)">
-          <%= "#{list.name}" %> <%=  link_to '+', list_path(list), class: 'ps-3' %>
-        </div>
+        <%=  link_to list_path(list) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(
+              <%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://unsplash.it/640/425' %>
+            );">
+           <p><%= "#{list.name}" %></p>
+          </div>
+        <% end %>
       <% end %>
 
     </div>
-
-
-  </div>
-
 
 
 

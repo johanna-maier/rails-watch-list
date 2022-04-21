@@ -59,3 +59,6 @@ gem 'open-uri'
 
 # env for keys
 gem 'dotenv-rails', groups: [:development, :test]
+
+# Cloudinary service
+gem 'cloudinary', '~> 1.16.0'
